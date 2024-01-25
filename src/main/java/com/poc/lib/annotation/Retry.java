@@ -1,12 +1,16 @@
 package com.poc.lib.annotation;
 
 import java.lang.annotation.*;
+import java.time.temporal.ChronoUnit;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Retry {
     int times() default 10;
-    int interval() default 5000;
-    int delay() default 0;
+    long retryInterval() default 5L;
+    long initialDelay() default 0L;
+    int multiplier() default 2;
+    ChronoUnit retryIntervalTimeUnit() default ChronoUnit.SECONDS;
+    ChronoUnit initialDelayTimeUnit() default ChronoUnit.SECONDS;
 }
