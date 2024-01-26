@@ -15,44 +15,41 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+
+		<awaitility.version>4.2.0</awaitility.version>
+		<junit.version>4.4</junit.version>
+		<spotless.version>2.35.0</spotless.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
 		<dependency>
 			<groupId>org.awaitility</groupId>
 			<artifactId>awaitility-groovy</artifactId>
-			<version>4.2.0</version>
+			<version>${awaitility.version}</version>
 		</dependency>
 
-		<!-- Testing Dependencies -->
-
+		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.4</version>
+			<version>${junit.version}</version>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -69,11 +66,10 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>com.diffplug.spotless</groupId>
 				<artifactId>spotless-maven-plugin</artifactId>
-				<version>2.35.0</version>
+				<version>${spotless.version}</version>
 				<configuration>
 					<java>
 						<eclipse>
