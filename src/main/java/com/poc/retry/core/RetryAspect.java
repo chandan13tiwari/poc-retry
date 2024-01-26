@@ -23,7 +23,7 @@ public class RetryAspect {
         this.retryService = retryService;
     }
 
-    @Around("@annotation(com.poc.lib.annotation.Retry)")
+    @Around("@annotation(com.poc.retry.annotation.Retry)")
     public Object executeRetry(ProceedingJoinPoint pjp) throws Throwable {
         final Retry retryOperation = ((MethodSignature) pjp.getSignature()).getMethod().getAnnotation(Retry.class);
         final int numberOfRetries = retryOperation.times();
