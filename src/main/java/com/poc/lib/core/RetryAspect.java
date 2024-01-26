@@ -55,19 +55,21 @@ public class RetryAspect {
             throw new RetryException("Time can't be negative, please provide correct values");
         }
 
-        retryService.pollDelayForRetry(initialDelay, initialDelayTimeUnit);
-
         for(int i=0; i<numberOfRetries; i++) {
             try{
+                if(i == 0) {
+                    retryService.pollDelayForRetry(initialDelay, initialDelayTimeUnit);
+                }
+
+                if(i == numberOfRetries - 1) {
+                    log.info("All {} retries are exhausted! This might happen because some services are not working as expected.", numberOfRetries);
+                }
+
                 interval = interval * multiplier;
                 retryService.pollIntervalForRetry(interval, intervalTimeUnit);
                 result = pjp.proceed();
             } catch (Exception ex) {
                 log.error("Exception occurred while retrying: {}", ex.getMessage());
-            }
-
-            if(i == numberOfRetries - 1) {
-                log.info("All {} retries are exhausted! This might happen because some services are not working as expected.", numberOfRetries);
             }
         }
 
