@@ -59,17 +59,22 @@ public class RetryAspect {
             try{
                 if(i == 0) {
                     retryService.pollDelayForRetry(initialDelay, initialDelayTimeUnit);
-                }
-
-                if(i == numberOfRetries - 1) {
-                    log.info("All {} retries are exhausted! This might happen because some services are not working as expected.", numberOfRetries);
+                    result = pjp.proceed();
+                    if(result != null) {
+                        break;
+                    }
                 }
 
                 interval = interval * multiplier;
                 retryService.pollIntervalForRetry(interval, intervalTimeUnit);
                 result = pjp.proceed();
+                break;
             } catch (Exception ex) {
                 log.error("Exception occurred while retrying: {}", ex.getMessage());
+            }
+
+            if(i == numberOfRetries - 1) {
+                log.info("All {} retries are exhausted! This might happen because some services are not working as expected.", numberOfRetries);
             }
         }
 
