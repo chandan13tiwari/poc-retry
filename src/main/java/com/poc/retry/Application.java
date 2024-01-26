@@ -1,4 +1,4 @@
-package com.poc.lib;
+package com.poc.retry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

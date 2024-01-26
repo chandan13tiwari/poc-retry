@@ -1,4 +1,4 @@
-package com.poc.lib.annotation;
+package com.poc.retry.annotation;
 
 import java.lang.annotation.*;
 import java.time.temporal.ChronoUnit;

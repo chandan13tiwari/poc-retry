@@ -1,4 +1,4 @@
-package com.poc.lib.core;
+package com.poc.retry.core;
 
 import org.awaitility.Awaitility;
 import org.junit.Assert;

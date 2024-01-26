@@ -1,7 +1,6 @@
-package com.poc.lib.controller;
+package com.poc.retry.controller;
 
-import com.poc.lib.annotation.Retry;
-import org.springframework.http.HttpEntity;
+import com.poc.retry.annotation.Retry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
