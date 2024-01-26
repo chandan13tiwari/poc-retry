@@ -23,6 +23,13 @@ import java.util.concurrent.TimeUnit;
 @EnableAspectJAutoProxy
 @Slf4j
 public class RetryAspect {
+
+    private final RetryServiceImpl retryService;
+
+    public RetryAspect(RetryServiceImpl retryService) {
+        this.retryService = retryService;
+    }
+
     @Around("@annotation(com.poc.lib.annotation.Retry)")
     public Object executeRetry(ProceedingJoinPoint pjp) throws Throwable {
         final Retry retryOperation = ((MethodSignature) pjp.getSignature()).getMethod().getAnnotation(Retry.class);
@@ -36,27 +43,34 @@ public class RetryAspect {
         Object result = null;
         long interval = retryInterval;
 
-        pollDelayForRetry(initialDelay, initialDelayTimeUnit);
+        if(numberOfRetries == 0) {
+            throw new RetryException("Number of Retries can't be 0, please provide correct values");
+        }
+
+        if(numberOfRetries < 0) {
+            throw new RetryException("Number of Retries can't be negative, please provide correct values");
+        }
+
+        if(initialDelay < 0 || retryInterval < 0) {
+            throw new RetryException("Time can't be negative, please provide correct values");
+        }
+
+        retryService.pollDelayForRetry(initialDelay, initialDelayTimeUnit);
 
         for(int i=0; i<numberOfRetries; i++) {
             try{
                 interval = interval * multiplier;
-                pollDelayForRetry(interval, intervalTimeUnit);
+                retryService.pollIntervalForRetry(interval, intervalTimeUnit);
                 result = pjp.proceed();
             } catch (Exception ex) {
-                log.error("Exception thrown: {}", ex.getMessage());
+                log.error("Exception occurred while retrying: {}", ex.getMessage());
+            }
+
+            if(i == numberOfRetries - 1) {
+                log.info("All {} retries are exhausted! This might happen because some services are not working as expected.", numberOfRetries);
             }
         }
 
-        log.info("After logs......");
-
         return result;
-    }
-
-    private static void pollDelayForRetry(long delay, ChronoUnit delayTimeUnit) {
-        Awaitility.await()
-                .timeout(delay + 1, TimeUnit.of(delayTimeUnit))
-                .pollDelay(delay, TimeUnit.of(delayTimeUnit))
-                .untilAsserted(() -> Assert.assertTrue(true));
     }
 }
