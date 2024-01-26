@@ -7,10 +7,10 @@ import java.time.temporal.ChronoUnit;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Retry {
-    int times() default 10;
-    long retryInterval() default 5L;
-    long initialDelay() default 0L;
-    int multiplier() default 2;
-    ChronoUnit retryIntervalTimeUnit() default ChronoUnit.SECONDS;
-    ChronoUnit initialDelayTimeUnit() default ChronoUnit.SECONDS;
+  int times() default 10;
+  long retryInterval() default 5L;
+  long initialDelay() default 0L;
+  int multiplier() default 2;
+  ChronoUnit retryIntervalTimeUnit() default ChronoUnit.SECONDS;
+  ChronoUnit initialDelayTimeUnit() default ChronoUnit.SECONDS;
 }

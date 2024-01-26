@@ -44,13 +44,8 @@
 			<version>4.2.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+		<!-- Testing Dependencies -->
 
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -73,6 +68,37 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>2.35.0</version>
+				<configuration>
+					<java>
+						<eclipse>
+
+						</eclipse>
+						<indent>
+							<tabs>true</tabs>
+							<spacesPerTab>2</spacesPerTab>
+						</indent>
+						<indent>
+							<spaces>true</spaces>
+							<spacesPerTab>2</spacesPerTab>
+						</indent>
+						<removeUnusedImports />
+					</java>
+				</configuration>
+				<executions>
+					<execution>
+						<id>java-formatter</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
