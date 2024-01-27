@@ -39,9 +39,9 @@ public @interface Retry {
    * increased exponentially.
    *
    * @see "Ex., retryInterval is 5, then
-   * first retry will trigger after 5x2=10seconds
-   * second retry will trigger after 10x2=20seconds
-   * third retry will trigger after 20x2=40seconds and so on.."
+   * first retry will trigger after 5x2=10seconds,
+   * second retry will trigger after 10x2=20seconds,
+   * third retry will trigger after 20x2=40seconds, and so on..."
    */
   int multiplier() default 2;
 

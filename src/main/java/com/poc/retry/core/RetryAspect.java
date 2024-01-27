@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.temporal.ChronoUnit;
 
+/**
+ * Aspect for {@link Retry} annotation
+ */
 @Aspect
 @Component
 @EnableAspectJAutoProxy
