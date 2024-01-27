@@ -1,7 +1,8 @@
 package com.poc.retry.core;
 
 /**
- * Thrown when there is a failure or violation of input parameters of {@link com.poc.retry.annotation.Retry} annotation.
+ * Thrown when there is a failure or violation of input parameters of
+ * {@link com.poc.retry.annotation.Retry} annotation.
  */
 public class RetryException extends RuntimeException {
 
