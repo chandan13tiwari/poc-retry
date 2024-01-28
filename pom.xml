@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.poc.retry</groupId>
+	<groupId>com.github.chandan13tiwari</groupId>
 	<artifactId>poc-retry</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>poc-retry</name>
@@ -145,7 +145,6 @@
 						</goals>
 						<configuration>
 							<keyname>0x2365862B</keyname>
-							<passphrase>0x2365862B</passphrase>
 						</configuration>
 					</execution>
 				</executions>

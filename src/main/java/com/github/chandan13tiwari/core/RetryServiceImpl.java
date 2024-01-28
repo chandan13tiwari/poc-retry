@@ -1,4 +1,4 @@
-package com.poc.retry.core;
+package com.github.chandan13tiwari.core;
 
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Assertions;

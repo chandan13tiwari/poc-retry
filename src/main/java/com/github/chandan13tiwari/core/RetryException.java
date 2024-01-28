@@ -1,8 +1,10 @@
-package com.poc.retry.core;
+package com.github.chandan13tiwari.core;
+
+import com.github.chandan13tiwari.annotation.Retry;
 
 /**
  * Thrown when there is a failure or violation of input parameters of
- * {@link com.poc.retry.annotation.Retry} annotation.
+ * {@link Retry} annotation.
  */
 public class RetryException extends RuntimeException {
 
