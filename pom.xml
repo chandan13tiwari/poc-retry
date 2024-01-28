@@ -11,7 +11,7 @@
 
 	<groupId>io.github.chandan13tiwari</groupId>
 	<artifactId>poc-retry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>poc-retry</name>
@@ -145,6 +145,10 @@
 						</goals>
 						<configuration>
 							<keyname>0x2365862B</keyname>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
 						</configuration>
 					</execution>
 				</executions>
@@ -221,14 +225,14 @@
 		<developer>
 			<name>Chandan Tiwari</name>
 			<email>proofofconceptcode@gmail.com</email>
-			<organization>com.poc.retry</organization>
+			<organization>io.github.chandan13tiwari</organization>
 			<organizationUrl>https://github.com/chandan13tiwari</organizationUrl>
 		</developer>
 	</developers>
 
 	<scm>
 		<connection>scm:git:git://github.com/chandan13tiwari/poc-retry.git</connection>
-		<developerConnection>scm:git:ssh://github.com/chandan13tiwari/poc-retry.git</developerConnection>
+		<developerConnection>scm:git:ssh://github.com:chandan13tiwari/poc-retry.git</developerConnection>
 		<url>http://github.com/chandan13tiwari/poc-retry</url>
 	</scm>
 
