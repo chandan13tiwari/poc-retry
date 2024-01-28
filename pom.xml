@@ -145,7 +145,7 @@
 						</goals>
 						<configuration>
 							<keyname>0x2365862B</keyname>
-							<passphrase>poc-retry</passphrase>
+							<passphrase>0x2365862B</passphrase>
 						</configuration>
 					</execution>
 				</executions>
