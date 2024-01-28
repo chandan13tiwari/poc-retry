@@ -1,6 +1,6 @@
-package com.github.chandan13tiwari.core;
+package io.github.chandan13tiwari.core;
 
-import com.github.chandan13tiwari.annotation.Retry;
+import io.github.chandan13tiwari.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

@@ -1,6 +1,6 @@
-package com.github.chandan13tiwari.core;
+package io.github.chandan13tiwari.core;
 
-import com.github.chandan13tiwari.annotation.Retry;
+import io.github.chandan13tiwari.annotation.Retry;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.junit.jupiter.api.Test;

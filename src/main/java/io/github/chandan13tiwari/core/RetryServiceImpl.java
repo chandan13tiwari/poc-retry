@@ -1,4 +1,4 @@
-package com.github.chandan13tiwari.core;
+package io.github.chandan13tiwari.core;
 
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Assertions;

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.github.chandan13tiwari</groupId>
+	<groupId>io.github.chandan13tiwari</groupId>
 	<artifactId>poc-retry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
